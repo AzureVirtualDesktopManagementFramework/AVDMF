@@ -9,6 +9,9 @@ function Set-AVDMFConfiguration {
         [string] $AzSubscriptionId = (Get-AzContext).Subscription.Id,
         [switch] $Force,
 
+        [Parameter(Mandatory=$true)]
+        [string] $DeploymentStage,
+
         # Use this parameter for testing offline to avoid Id resolutions.
         [switch] $Offline
 
@@ -28,7 +31,7 @@ function Set-AVDMFConfiguration {
     }
     #endregion: Load Custom Environment Variables
     #region: Set DeploymentStage
-    $script:DeploymentStage = $env:SYSTEM_STAGEDISPLAYNAME
+    $script:DeploymentStage = $DeploymentStage
     if ([string]::IsNullOrEmpty($DeploymentStage) -or [string]::IsNullOrWhiteSpace($DeploymentStage)) {
         throw "Deployment Stage is not defined, if running from local device create EnvironmentVariables.json file. Otherwise review environment variables."
         #TODO: Include environment variable name in error message.

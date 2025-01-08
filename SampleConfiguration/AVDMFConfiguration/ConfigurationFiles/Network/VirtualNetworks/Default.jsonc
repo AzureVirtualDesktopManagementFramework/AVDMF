@@ -5,7 +5,7 @@
         /*
         {
             "RemoteVnetId": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/rg-ALZ-HubNetworking-01/providers/Microsoft.Network/virtualNetworks/vnet-alzhub-westeurope-01",
-            "UseRemoteGateways": true,
+            "UseRemoteGateways": true, // Set this to true only if you have a VPN Gateway in the remote (hub) VNet
             "CreateRemotePeering": false
         }
         */
